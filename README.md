@@ -1,6 +1,6 @@
-# OCI Model Directory Uploader
+# OCI Directory Uploader
 
-A Python utility for uploading model directories to Oracle Cloud Infrastructure using PAR (Pre-Authenticated Request) links. 
+A Python utility for uploading directories to Oracle Cloud Infrastructure using PAR (Pre-Authenticated Request) links. 
 
 ## Features
 
@@ -30,7 +30,7 @@ pip install -r requirements.txt
 Basic usage:
 
 ```
-python oci_uploader.py /path/to/model/directory --par-url "https://objectstorage.region.oraclecloud.com/p/..." --prefix "models/"
+python oci_uploader.py /path/to/directory --par-url "https://objectstorage.region.oraclecloud.com/p/..." --prefix "data/"
 ```
 
 ### Command Line Arguments
@@ -39,7 +39,7 @@ python oci_uploader.py /path/to/model/directory --par-url "https://objectstorage
 |----------|-------------|
 | `directory` | Directory containing files to upload |
 | `--par-url` | Pre-Authenticated Request URL for uploads (required) |
-| `--prefix` | Prefix to add to object names (e.g., 'models/') |
+| `--prefix` | Prefix to add to object names (e.g., 'data/') |
 | `--dry-run` | Simulate the upload without actually transferring files |
 | `--no-recursive` | Do not recursively scan directories |
 | `--max-workers` | Maximum number of concurrent uploads (default: 5) |
@@ -51,19 +51,19 @@ python oci_uploader.py /path/to/model/directory --par-url "https://objectstorage
 Upload a directory with a specific prefix:
 
 ```
-python oci_uploader.py ~/models/gpt-models --par-url "https://objectstorage.region.oraclecloud.com/p/..." --prefix "ai-models/gpt/"
+python oci_uploader.py ~/big/data/dir --par-url "https://objectstorage.region.oraclecloud.com/p/..." --prefix "data/"
 ```
 
 Perform a dry run to see what would be uploaded:
 
 ```
-python oci_uploader.py ~/models/gpt-models --par-url "https://objectstorage.region.oraclecloud.com/p/..." --prefix "ai-models/gpt/" --dry-run
+python oci_uploader.py ~/big/data/dir --par-url "https://objectstorage.region.oraclecloud.com/p/..." --prefix "data/" --dry-run
 ```
 
 Increase concurrent uploads for better performance:
 
 ```
-python oci_uploader.py ~/models/gpt-models --par-url "https://objectstorage.region.oraclecloud.com/p/..." --max-workers 10
+python oci_uploader.py ~/big/data/dir --par-url "https://objectstorage.region.oraclecloud.com/p/..." --prefix "data/" --max-workers 10
 ```
 
 ## Notes
